@@ -1,28 +1,32 @@
-<a href="https://github.com/worldline-spain/mfw-inapp-browser-ionic/blob/464377f/src/mfw-ionic-inapp-browser.service.js#L104" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">$mwfiBrowser</code>
+<a href="https://github.com/worldline-spain/mfw-inapp-browser-ionic/blob/a0ccc01/src/mfw-ionic-inapp-browser.service.js#L125" class="view-source"><i class="icon-eye-open"> </i>View source</a><h1><code ng:non-bindable="">$mwfiBrowser</code>
 <div><span class="hint">service in module <code ng:non-bindable="">mfw-ionic.inapp-browser</code>
 </span>
 </div>
 </h1>
 <div><h2 id="description">Description</h2>
-<div class="description"><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-page"><p>Push service for Ionic applications.</p>
-<p>It wraps all events broadcasted to <code>$rootScope</code> and offers a callback-based API.</p>
+<div class="description"><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-page"><p>InApp browser service that allows you to open external URLs using native browser or embedded webviews.</p>
 </div></div>
 <div class="member method"><h2 id="methods">Methods</h2>
-<ul class="methods"><li><a href="https://github.com/worldline-spain/mfw-inapp-browser-ionic/blob/464377f/src/mfw-ionic-inapp-browser.service.js#L136" class="view-source icon-eye-open"> </a><h3 id="methods_open">open(url, target, options)</h3>
-<div class="open"><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p>Open a new browser window with given URL, target and options. Think of this method as a replacement
-of <a href="http://www.w3schools.com/jsref/met_win_open.asp"><code>window.open()</code></a>.</p>
+<ul class="methods"><li><a href="https://github.com/worldline-spain/mfw-inapp-browser-ionic/blob/a0ccc01/src/mfw-ionic-inapp-browser.service.js#L144" class="view-source icon-eye-open"> </a><h3 id="methods_init">init()</h3>
+<div class="init"><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-init-page"><p>Initializer method, to be called when module is loaded.</p>
+<p>It detects whether <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller#4-usage"><code>SafariViewController</code></a> is available or not.</p>
+</div></div>
+</li>
+<li><a href="https://github.com/worldline-spain/mfw-inapp-browser-ionic/blob/a0ccc01/src/mfw-ionic-inapp-browser.service.js#L175" class="view-source icon-eye-open"> </a><h3 id="methods_open">open(url, target, options)</h3>
+<div class="open"><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p>Open a new browser window with given URL, target and options.</p>
 <p>Internally, this method calls <a href="https://github.com/apache/cordova-plugin-inappbrowser"><code>InAppBrowser</code></a> or
 <a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#documentation"><code>SafariViewController</code></a>
 depending on its availability (iOS 9+).</p>
 </div><h5 id="methods_open_parameters">Parameters</h5><table class="variables-matrix table table-bordered table-striped"><thead><tr><th>Param</th><th>Type</th><th>Details</th></tr></thead><tbody><tr><td>url</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p>URL to open</p>
-</div></td></tr><tr><td>target <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p>The target in which to load the URL, an optional parameter that defaults to <code>_self</code>.</p>
+</div></td></tr><tr><td>target <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p>The target in which to load the URL, an optional parameter that defaults to configured
+<a href="#/api/mfw-ionic.inapp-browser.$mwfiBrowserProvider#config"><code>options.target</code></a> if set or <code>_self</code>.</p>
 <ul>
 <li><code>_self</code>: Opens in the Cordova WebView if the URL is in the white list, otherwise it opens in the <code>InAppBrowser</code>.</li>
 <li><code>_blank</code>: Opens in the <code>InAppBrowser</code>.</li>
-<li><code>_system</code>: Opens in the system&#39;s web browser.</li>
+<li><code>_system</code>: Opens in the system&#39;s web browser app.</li>
 </ul>
-</div></td></tr><tr><td>options</td><td><a href="" class="label type-hint type-hint-string">string</a></td><td><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p><a href="https://github.com/apache/cordova-plugin-inappbrowser#cordovainappbrowseropen">Options</a>
-for the <code>InAppBrowser</code>.</p>
+</div></td></tr><tr><td>options <div><em>(optional)</em></div></td><td><a href="" class="label type-hint type-hint-object">object</a></td><td><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p><a href="https://github.com/apache/cordova-plugin-inappbrowser#cordovainappbrowseropen">InAppBrowser options</a>
+for the <code>InAppBrowser</code> and/or<a href="https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#options">SafariViewController options</a>.</p>
 </div></td></tr></tbody></table><h5 id="methods_open_returns">Returns</h5><table class="variables-matrix"><tr><td><a href="" class="label type-hint type-hint-promise">Promise&lt;InAppBrowser&gt;</a></td><td><div class="mfw-ionic-inapp-browser-service-page mfw-ionic-inapp-browser-service--mwfibrowser-open-page"><p>Promise that will resolve when browser is opened. It will resolve with new
 <a href="https://github.com/apache/cordova-plugin-inappbrowser#inappbrowser"><code>InAppBrowser</code></a> instance if using
 target <code>_blank</code>.</p>

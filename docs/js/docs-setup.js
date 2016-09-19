@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "mfw-ionic.inapp-browser",
       "shortDescription": "Provider of $mwfiBrowser service.",
-      "keywords": "$mwfibrowser $mwfibrowserprovider api browser config configure cordovainappbrowseropen disabled docs enabled function generic https inapp-browser launched mfw-ionic notifications official options provider push read register service"
+      "keywords": "$mwfibrowser $mwfibrowserprovider api browser config configure cordovainappbrowseropen default docs function generic https inapp-browser launched mfw-ionic official options provider read service target"
     },
     {
       "section": "api",
@@ -27,8 +27,8 @@ NG_DOCS={
       "shortName": "$mwfiBrowser",
       "type": "service",
       "moduleName": "mfw-ionic.inapp-browser",
-      "shortDescription": "Push service for Ionic applications.",
-      "keywords": "$rootscope _blank _self _system api applications asp availability broadcasted browser callback-based calls cordova cordovainappbrowseropen defaults depending documentation events http https inapp-browser inappbrowser instance internally ionic list load method mfw-ionic offers open opened opens optional options parameter promise push replacement resolve safariviewcontroller service system target url w3schools web webview white window wraps"
+      "shortDescription": "InApp browser service that allows you to open external URLs using native browser or embedded webviews.",
+      "keywords": "$mwfibrowserprovider _blank _self _system allows api app availability browser called calls config configured cordova cordovainappbrowseropen defaults depending detects documentation embedded external https inapp inapp-browser inappbrowser init initializer instance internally list load loaded method mfw-ionic module native open opened opens optional options parameter promise resolve safariviewcontroller service set system target url urls web webview webviews white window"
     }
   ],
   "apis": {
