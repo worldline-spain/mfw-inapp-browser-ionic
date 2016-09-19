@@ -101,10 +101,11 @@
      * @description
      * Configure generic options to be used on each new browser launched.
      *
-     * Read {@link https://github.com/apache/cordova-plugin-inappbrowser#cordovainappbrowseropen official docs} for
-     * more options.
-     *
      * @param {object} options Options
+     *    Use settings of both plugins:
+     *
+     *    * [InAppBrowser](https://github.com/apache/cordova-plugin-inappbrowser#cordovainappbrowseropen)
+     *    * [SafariViewController](https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#options)
      * @param {string} options.target Default target
      */
     this.config = function (options) {
@@ -166,7 +167,7 @@
        *    * `_blank`: Opens in the `InAppBrowser`.
        *    * `_system`: Opens in the system's web browser app.
        * @param {object=} options {@link https://github.com/apache/cordova-plugin-inappbrowser#cordovainappbrowseropen InAppBrowser options}
-       *    for the `InAppBrowser` and/or{@link https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#options SafariViewController options}.
+       *    for the `InAppBrowser` and/or {@link https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#options SafariViewController options}.
        *
        * @returns {Promise<InAppBrowser>} Promise that will resolve when browser is opened. It will resolve with new
        *    {@link https://github.com/apache/cordova-plugin-inappbrowser#inappbrowser `InAppBrowser`} instance if using
@@ -177,6 +178,7 @@
 
         // Default target
         target = target || defaultOptions.target;
+        options = angular.extend({}, defaultOptions, options);
 
         // Use SafariViewController or $cordovaInAppBrowser
         if (target === '_blank' && isSafariBrowserAvailable) {

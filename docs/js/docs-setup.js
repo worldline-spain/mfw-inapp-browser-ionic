@@ -19,7 +19,7 @@ NG_DOCS={
       "type": "service",
       "moduleName": "mfw-ionic.inapp-browser",
       "shortDescription": "Provider of $mwfiBrowser service.",
-      "keywords": "$mwfibrowser $mwfibrowserprovider api browser config configure cordovainappbrowseropen default docs function generic https inapp-browser launched mfw-ionic official options provider read service target"
+      "keywords": "$mwfibrowser $mwfibrowserprovider api browser config configure cordovainappbrowseropen default function generic inapp-browser launched mfw-ionic options plugins provider service settings target"
     },
     {
       "section": "api",
