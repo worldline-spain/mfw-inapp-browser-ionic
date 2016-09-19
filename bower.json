@@ -21,7 +21,7 @@
     "$mwfiBrowser"
   ],
   "moduleType": "globals",
-  "dependencies": {
+  "devDependencies": {
     "ionic": "1.2.4",
     "ngCordova": "~0.1.20-alpha"
   },
