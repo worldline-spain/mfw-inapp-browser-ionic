@@ -63,7 +63,10 @@ Now you can inject `$mwfiBrowser` service.
 
 ### Configure
 
-Enable or disable push registration and set proper [platform configuration](https://github.com/phonegap/phonegap-plugin-push/blob/master/docs/API.md#pushnotificationinitoptions).
+Configure default options for both plugins:
+
+* [InAppBrowser](https://github.com/apache/cordova-plugin-inappbrowser#cordovainappbrowseropen)
+* [SafariViewController](https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#options)
 
 ```js
 angular
@@ -73,13 +76,16 @@ angular
 configInAppBrowser.$inject = ['$mwfiBrowserProvider'];
 function configInAppBrowser($mwfiBrowserProvider) {
   $mwfiBrowserProvider.config({
+    /*
+     * InAppBrowser
+     */
     // Common
     target: '_blank',
     location: 'no',
-    
+
     // Android
     zoom: 'no',
-    
+
     // iOS
     allowInlineMediaPlayback: 'yes',
     presentationstyle: 'pagesheet',
@@ -87,8 +93,17 @@ function configInAppBrowser($mwfiBrowserProvider) {
     toolbar: 'yes',
     toolbarposition: 'top',
     //closebuttoncaption: 'Ok'
-    
+
     // Windows Phone
+    // ...
+
+    /*
+     * SafariViewController
+     */
+    enterReaderModeIfAvailable: true,
+    tintColor: "#000000", // default is ios blue
+    barColor: "#eaeaea", // on iOS 10+ you can change the background color as well
+    controlTintColor: "#ffffff" // on iOS 10+ you can override the default tintColor
   });
 }
 ```
