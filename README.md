@@ -88,19 +88,19 @@ function configInAppBrowser($mwfiBrowserProvider) {
 
     // iOS
     allowInlineMediaPlayback: 'yes',
-    presentationstyle: 'pagesheet',
+    presentationstyle: 'fullscreen',
     transitionstyle: 'crossdissolve',
     toolbar: 'yes',
-    toolbarposition: 'top',
     //closebuttoncaption: 'Ok'
 
     // Windows Phone
-    // ...
+    fullscreen: 'yes',
 
     /*
      * SafariViewController
      */
-    enterReaderModeIfAvailable: true,
+    transition: 'slide', // (this only works in iOS 9.1/9.2 and lower) unless animated is false you can choose from: curl, flip, fade, slide (default)
+    enterReaderModeIfAvailable: true, // default false
     tintColor: "#000000", // default is ios blue
     barColor: "#eaeaea", // on iOS 10+ you can change the background color as well
     controlTintColor: "#ffffff" // on iOS 10+ you can override the default tintColor
