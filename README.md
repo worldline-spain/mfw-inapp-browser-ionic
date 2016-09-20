@@ -1,4 +1,4 @@
-# MFW Ionic InApp Browser v1.0.0
+# MFW Ionic InApp Browser v1.0.3
 
 This AngularJS module provides a way to open external URLs using internal browser as part of **Mobile FrameWork (MFW)** for **Ionic** applications.
 
