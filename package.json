@@ -1,6 +1,6 @@
 {
   "name": "mfw-inapp-browser-ionic",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "MFW InApp Browser library for Ionic 1.* apps",
   "author": "Juan Belmonte Rodríguez <juan.belmonte@worldline.com> (https://github.com/jbelmonte)",
   "contributors": [
