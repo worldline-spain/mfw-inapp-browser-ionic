@@ -42,23 +42,18 @@
    * Initialize service.
    */
   BrowserModule.run(initService);
-  initService.$inject = ['$ionicPlatform', '$mwfiBrowser'];
-  function initService($ionicPlatform, $mwfiBrowser) {
+  initService.$inject = ['$ionicPlatform', '$mwfiBrowser', '$window'];
+  function initService($ionicPlatform, $mwfiBrowser, $window) {
     $ionicPlatform.ready(function () {
+      _safariWebViewPolyfill();
       $mwfiBrowser.init();
     });
-  }
 
-  /**
-   * RUN section.
-   *
-   * Add a {@link https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#documentation
-   * `SafariViewController`} polyfill when it's not available (browser) that confirms it's not available.
-   */
-  BrowserModule.run(safariWebViewPolyfill);
-  safariWebViewPolyfill.$inject = ['$ionicPlatform', '$window'];
-  function safariWebViewPolyfill($ionicPlatform, $window) {
-    $ionicPlatform.ready(function () {
+    /**
+     *
+     * @private
+     */
+    function _safariWebViewPolyfill() {
       if (angular.isUndefined($window.SafariViewController)) {
         $window.SafariViewController = {
           isAvailable: function (cb) {
@@ -68,8 +63,9 @@
           hide: angular.noop
         };
       }
-    });
+    }
   }
+
 
   /**
    * @ngdoc service
@@ -90,7 +86,7 @@
       animated: true, // default true, note that 'hide' will reuse this preference (the 'Done' button will always animate though)
       transition: 'curl', // (this only works in iOS 9.1/9.2 and lower) unless animated is false you can choose from: curl, flip, fade, slide (default)
       //enterReaderModeIfAvailable: readerMode, // default false
-      tintColor: "#ff0000" // default is ios blue
+      tintColor: '#ff0000' // default is ios blue
     };
 
     /**
@@ -113,7 +109,7 @@
       $cordovaInAppBrowserProvider.setDefaultOptions(defaultOptions);
     };
 
-    this.$get = ['$log', '$q', '$cordovaInAppBrowser', function ($log, $q, $cordovaInAppBrowser) {
+    this.$get = ['$log', '$q', '$window', '$cordovaInAppBrowser', function ($log, $q, $window, $cordovaInAppBrowser) {
       var isSafariBrowserAvailable = false;
 
       /**
@@ -143,7 +139,7 @@
        * It detects whether {@link https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller#4-usage `SafariViewController`} is available or not.
        */
       function init() {
-        SafariViewController.isAvailable(function (available) {
+        $window.SafariViewController.isAvailable(function (available) {
           isSafariBrowserAvailable = available;
         });
       }
@@ -220,7 +216,7 @@
        * @private
        */
       function _openWithSafariBrowser(url, target, options, defer) {
-        SafariViewController.show(angular.extend({url: url}, defaultOptions, options),
+        $window.SafariViewController.show(angular.extend({url: url}, defaultOptions, options),
           function (result) {
             // this success handler will be invoked for the lifecycle events 'opened', 'loaded' and 'closed'
             defer.notify(result);
