@@ -50,6 +50,8 @@
     });
 
     /**
+     * Add a {@link https://github.com/EddyVerbruggen/cordova-plugin-safariviewcontroller/wiki#documentation
+     * `SafariViewController`} polyfill when it's not available (browser) that confirms it's not available.
      *
      * @private
      */
